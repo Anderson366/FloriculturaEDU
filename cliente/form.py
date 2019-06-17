@@ -19,4 +19,9 @@ class ProdutosForm(ModelForm):
         model = Produtos
         fields = ['nome_produto', 'descricao', 'quantidade', 'valor', 'observacao']
 
+class VendasForm(ModelForm):
+    class Meta:
+        model = Vendas
+        fields = ['nome_venda', 'cliente', 'produto', 'funcionario']
+
 #SEMPRE COLOCAR OS MESMOS NOMES CONTIDOS NAS CLASSES DENTRO DE MODELS.PY

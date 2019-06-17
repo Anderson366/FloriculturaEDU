@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .form import ClientesForm
 from .form import FuncionariosForm
 from .form import ProdutosForm
-#from .form import VendasForm
+from .form import VendasForm
 
 # Create your views here.
 
@@ -100,3 +100,31 @@ def deletar_produto(request, pk):
     produto = Produtos.objects.get(pk=pk)
     produto.delete()
     return redirect('lista_produto')
+
+def lista_venda(request):
+    data = {}
+    #DICIONÁRIO DATA
+    data ['venda'] = Vendas.objects.all()
+    return render(request, 'cliente/lista_venda.html', data)
+
+def cadastrar_venda(request):
+    form = VendasForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('lista_venda')
+    return render(request, 'cliente/cadastrar_venda.html', {'form': form})
+
+def atualizar_venda(request, pk):
+    data = {}
+    venda = Vendas.objects.get(pk=pk)
+    form = VendasForm(request.POST or None, instance=venda)
+    if form.is_valid():
+        form.save()
+        return redirect('lista_venda')
+    data['form'] = form
+    data['venda'] = venda
+    return render(request, 'cliente/cadastrar_venda.html', data)
+def deletar_venda(request, pk):
+    venda = Vendas.objects.get(pk=pk)
+    venda.delete()
+    return redirect('lista_venda')

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-bt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,11 +8,12 @@
     <title>Documento</title>
 </head>
 <body>
-    <h1>Seja bem vindo!</h1>
-    <p><a href="{% url 'Cadastro Cliente' %}">Cadastrar novo cliente</a></p>
-    <p><a href="{% url 'Cadastro Funcionario' %}">Cadastrar novo funcion&aacute;rio</a></p>
+    <h1>LISTA DE PRODUTOS</h1>
+    <ul>
+        {% for Produtos in produto %}
+        <li><a href="{% url 'Atualizar Produto' Produtos.id_produto %}">  {{ Produtos.nome_produto }} - {{ Produtos.valor }}</a></li>
+        {% endfor %}
+    </ul>
     <p><a href="{% url 'Cadastro Produto' %}">Cadastrar novo produto</a></p>
-
-
 </body>
 </html>

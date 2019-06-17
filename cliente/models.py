@@ -20,7 +20,7 @@ class Funcionarios(models.Model):
     rg_funcionario = models.CharField(max_length=7, default='')
     endereco_funcionario = models.CharField(max_length=50, default='')
     telefone_funcionario = models.CharField(max_length=11, default='')
-    data_admissao = models.DateTimeField(default=0)
+    data_admissao = models.DateTimeField(auto_now_add=False)
     salario = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):

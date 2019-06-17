@@ -15,20 +15,37 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from cliente.views import home
-from cliente.views import lista
+from cliente.views import lista_cliente
+from cliente.views import lista_funcionario
+from cliente.views import lista_produto
 from cliente.views import cadastrar_cliente
+from cliente.views import cadastrar_funcionario
+from cliente.views import cadastrar_produto
 from cliente.views import atualizar_cliente
+from cliente.views import atualizar_funcionario
+from cliente.views import atualizar_produto
 from cliente.views import deletar_cliente
+from cliente.views import deletar_funcionario
+from cliente.views import deletar_produto
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home),
-    path('lista/', lista, name='lista'),
+    path('', home),
+    path('lista_cliente/', lista_cliente, name='lista_cliente'),
+    path('lista_funcionario/', lista_funcionario, name='lista_funcionario'),
+    path('lista_produto/', lista_produto, name='lista_produto'),
     path('cadastrar_cliente/', cadastrar_cliente, name='Cadastro Cliente'),
-    path('atualizar_cliente/<int:pk>',atualizar_cliente, name='Atualizar Cliente'),
-    path('deletar_cliente/<int:pk>',deletar_cliente, name='Deletar Cliente'),
+    path('cadastrar_funcionario/', cadastrar_funcionario, name='Cadastro Funcionario'),
+    path('cadastrar_produto/', cadastrar_produto, name='Cadastro Produto'),
+    path('atualizar_cliente/<int:pk>', atualizar_cliente, name='Atualizar Cliente'),
+    path('atualizar_funcionario/<int:pk>', atualizar_funcionario, name='Atualizar Funcionario'),
+    path('atualizar_produto/<int:pk>', atualizar_produto, name='Atualizar Produto'),
+    path('deletar_cliente/<int:pk>', deletar_cliente, name='Deletar Cliente'),
+    path('deletar_funcionario/<int:pk>', deletar_funcionario, name='Deletar Funcionario'),
+    path('deletar_produto/<int:pk>', deletar_produto, name='Deletar Produto'),
 ]
 #PARA QUE POSSA ALTERAR ALGUM OBJETO, É NECESSÁRIO QUE PASSE UMA REFERÊNCIA PARA O MESMO
 #ENTÃO, CRIAMOS UMA 'PRIMARY_KEY' PARA QUE O OBJETO POSSA SER ENCONTRADO MAIS FACILMENTE

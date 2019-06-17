@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-bt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,10 +8,13 @@
     <title>Documento</title>
 </head>
 <body>
-    <h1>Seja bem vindo!</h1>
-    <p><a href="{% url 'Cadastro Cliente' %}">Cadastrar novo cliente</a></p>
+    <h1>LISTA DE FUNCION&Aacute;RIOS</h1>
+    <ul>
+        {% for Funcionarios in funcionario %}
+        <li><a href="{% url 'Atualizar Funcionario' Funcionarios.id_funcionario %}">  {{ Funcionarios.nome_funcionario }} - {{ Funcionarios.telefone_funcionario }}</a></li>
+        {% endfor %}
+    </ul>
     <p><a href="{% url 'Cadastro Funcionario' %}">Cadastrar novo funcion&aacute;rio</a></p>
-    <p><a href="{% url 'Cadastro Produto' %}">Cadastrar novo produto</a></p>
 
 
 </body>

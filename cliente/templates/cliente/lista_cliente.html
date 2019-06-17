@@ -8,6 +8,7 @@
     <title>Documento</title>
 </head>
 <body>
+    <h1>LISTA DE CLIENTES</h1>
     <ul>
         {% for Clientes in cliente %}
         <li><a href="{% url 'Atualizar Cliente' Clientes.id_cliente %}">  {{ Clientes.nome_cliente }} - {{ Clientes.telefone_cliente }}</a></li>

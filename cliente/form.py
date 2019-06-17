@@ -9,4 +9,14 @@ class ClientesForm(ModelForm):
         model = Clientes
         fields = ['nome_cliente','rg_cliente', 'endereco_cliente', 'telefone_cliente']
 
+class FuncionariosForm(ModelForm):
+    class Meta:
+        model = Funcionarios
+        fields = ['nome_funcionario', 'rg_funcionario', 'endereco_funcionario', 'telefone_funcionario', 'data_admissao', 'salario']
+
+class ProdutosForm(ModelForm):
+    class Meta:
+        model = Produtos
+        fields = ['nome_produto', 'descricao', 'quantidade', 'valor', 'observacao']
+
 #SEMPRE COLOCAR OS MESMOS NOMES CONTIDOS NAS CLASSES DENTRO DE MODELS.PY

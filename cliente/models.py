@@ -4,7 +4,7 @@ from django.db import models
 class Clientes(models.Model):
     id_cliente = models.AutoField(primary_key=True)
     nome_cliente = models.CharField(max_length=100, default='')
-    rg_cliente = models.CharField(max_length=7, default='00000000')
+    rg_cliente = models.CharField(max_length=7, default='0000000')
     endereco_cliente = models.CharField(max_length=50, default='')
     telefone_cliente = models.CharField(max_length=11, default='00000000')
 
@@ -32,9 +32,9 @@ class Funcionarios(models.Model):
 class Produtos(models.Model):
     id_produto = models.AutoField(primary_key=True)
     nome_produto = models.CharField(max_length=100, default='')
+    quantidade_produto = models.IntegerField(default=10)
+    valor_produto = models.DecimalField(max_digits=6, decimal_places=2)
     descricao = models.TextField()
-    quantidade = models.IntegerField(default=10)
-    valor = models.DecimalField(max_digits=6, decimal_places=2)
     observacao = models.TextField(null = True, blank = True)
 
     def __str__(self):
@@ -43,16 +43,14 @@ class Produtos(models.Model):
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
 
-
-
 class Vendas(models.Model):
     id_venda = models.AutoField(primary_key=True)
     nome_venda = models.CharField(max_length=100, default='')
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produtos, on_delete=models.CASCADE)
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
-    quantidade = models.IntegerField(max_length=3)
-    valor_total = models.DecimalField(max_digits=6, decimal_places=2)
+    quantidade_venda = models.IntegerField(default=10)
+    valor_total = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     data_venda = models.DateTimeField(auto_now_add=True)
 
     #FALTOU COLOCAR A QUANTIDADE DO ESTOQUE

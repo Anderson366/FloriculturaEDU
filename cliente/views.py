@@ -44,6 +44,7 @@ def deletar_cliente(request, pk):
     cliente.delete()
     return redirect('lista_cliente')
 
+
 def lista_funcionario(request):
     data = {}
     #DICIONÁRIO DATA
@@ -70,19 +71,18 @@ def deletar_funcionario(request, pk):
     funcionario.delete()
     return redirect('lista_funcionario')
 
+
 def lista_produto(request):
     data = {}
     #DICIONÁRIO DATA
     data ['produto'] = Produtos.objects.all()
     return render(request, 'cliente/lista_produto.html', data)
-
 def cadastrar_produto(request):
     form = ProdutosForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('lista_produto')
     return render(request, 'cliente/cadastrar_produto.html', {'form': form})
-
 def atualizar_produto(request, pk):
     data = {}
     produto = Produtos.objects.get(pk=pk)
@@ -98,11 +98,10 @@ def deletar_produto(request, pk):
     produto.delete()
     return redirect('lista_produto')
 
+
 def lista_venda(request):
-    data = {}
-    #DICIONÁRIO DATA
-    data ['venda'] = Vendas.objects.all()
-    return render(request, 'cliente/lista_venda.html', data)
+    form = Vendas.objects.all()
+    return render(request, 'cliente/lista_venda.html', {'form':form})
 
 def cadastrar_venda(request):
     form = VendasForm(request.POST or None)
@@ -110,7 +109,6 @@ def cadastrar_venda(request):
         form.save()
         return redirect('lista_venda')
     return render(request, 'cliente/cadastrar_venda.html', {'form': form})
-
 def atualizar_venda(request, pk):
     data = {}
     venda = Vendas.objects.get(pk=pk)

@@ -24,8 +24,8 @@
                 <tr>
                     <td><a href="{% url 'Atualizar Produto' Produtos.id_produto %}">{{ Produtos.nome_produto }}</a></td>
                     <td>{{ Produtos.descricao }}</td>
-                    <td>{{ Produtos.quantidade }}</td>
-                    <td>{{ Produtos.valor }}</td>
+                    <td>{{ Produtos.quantidade_produto }}</td>
+                    <td>{{ Produtos.valor_produto }}</td>
                     <td>{{ Produtos.observacao }}</td>
                 </tr>
             {% empty %}

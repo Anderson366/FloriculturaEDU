@@ -9,13 +9,29 @@
 </head>
 <body>
     <h1>LISTA DE CLIENTES</h1>
-    <ul>
-        {% for Clientes in cliente %}
-        <li><a href="{% url 'Atualizar Cliente' Clientes.id_cliente %}">  {{ Clientes.nome_cliente }} - {{ Clientes.telefone_cliente }}</a></li>
-        {% endfor %}
-    </ul>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>RG</th>
+                    <th>ENDERE&Ccedil;O</th>
+                    <th>TELEFONE</th>
+                </tr>
+            </thead>
+            {% for Clientes in cliente %}
+                <tr>
+                    <td><a href="{% url 'Atualizar Cliente' Clientes.id_cliente %}">{{ Clientes.nome_cliente }}</a></td>
+                    <td>{{ Clientes.rg_cliente }}</td>
+                    <td>{{ Clientes.endereco_cliente }}</td>
+                    <td>{{ Clientes.telefone_cliente }}</td>
+                </tr>
+            {% empty %}
+                <h3>Sem clientes cadastrados.</h3>
+            {% endfor %}
+        </table>
+    </div>
+    <hr/>
     <p><a href="{% url 'Cadastro Cliente' %}">Cadastrar novo cliente</a></p>
-
-
 </body>
 </html>

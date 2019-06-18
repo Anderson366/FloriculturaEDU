@@ -9,13 +9,34 @@
 </head>
 <body>
     <h1>LISTA DE FUNCION&Aacute;RIOS</h1>
-    <ul>
-        {% for Funcionarios in funcionario %}
-        <li><a href="{% url 'Atualizar Funcionario' Funcionarios.id_funcionario %}">  {{ Funcionarios.nome_funcionario }} - {{ Funcionarios.telefone_funcionario }}</a></li>
-        {% endfor %}
-    </ul>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>RG</th>
+                    <th>ENDERE&Ccedil;O</th>
+                    <th>TELEFONE</th>
+                    <th>|DATA ADMISS&Atilde;O|</th>
+                    <th>SAL&Aacute;RIO</th>
+                </tr>
+            </thead>
+            {% for Funcionarios in funcionario %}
+                <tr>
+                    <td><a href="{% url 'Atualizar Funcionario' Funcionarios.id_funcionario %}">{{ Funcionarios.nome_funcionario }}</a></td>
+                    <td>{{ Funcionarios.rg_funcionario }}</td>
+                    <td>{{ Funcionarios.endereco_funcionario }}</td>
+                    <td>{{ Funcionarios.telefone_funcionario }}</td>
+                    <td>|{{ Funcionarios.data_admissao }}|</td>
+                    <td>{{ Funcionarios.salario }}</td>
+                </tr>
+            {% empty %}
+                <h3>Sem funcion&aacute;rios cadastrados.</h3>
+            {% endfor %}
+        </table>
+    </div>
+    <hr/>
     <p><a href="{% url 'Cadastro Funcionario' %}">Cadastrar novo funcion&aacute;rio</a></p>
-
-
 </body>
 </html>

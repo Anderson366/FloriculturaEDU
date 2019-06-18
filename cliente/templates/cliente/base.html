@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>BEM VINDO AO NOSSO SITE</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% /static/cliente/css/estilolink.css %}">
 </head>
     <body>
-        <h1>Floricultura - MiniDevs</h1>
-        <ul>
-            <li><p><a href="{% url 'Home' %}">Ver menus</a></p></li>
-            <li><p><a href="{% url 'Lista Cliente' %}">Listagem de Clientes cadastrados</a></p></li>
-            <li><p><a href="{% url 'Lista Funcionario' %}">Listagem de Funcion&aacute;rios cadastrados</a></p></li>
-            <li><p><a href="{% url 'Lista Produto' %}">Listagem de Produtos cadastrados</a></p></li>
-            <li><p><a href="{% url 'Lista Venda' %}">Listagem de Vendas efetuadas</a></p></li>
-            <li><p><a href="{% url 'Erro' %}">Relatar erro</a></p></li>
-            <li><p><a href="{% url 'Sobre' %}">Sobre n&oacute;s</a></p></li>
-        </ul>
+        <div id="principal">
+
+            <h1>Floricultura - MiniDevs</h1>
+            <div id="menu">
+                <ul>
+                    <li><p><a href="{% url 'Home' %}">Ver menus</a></p></li>
+                    <li><p><a href="{% url 'Lista Cliente' %}">Listagem de Clientes cadastrados</a></p></li>
+                    <li><p><a href="{% url 'Lista Funcionario' %}">Listagem de Funcion&aacute;rios cadastrados</a></p></li>
+                    <li><p><a href="{% url 'Lista Produto' %}">Listagem de Produtos cadastrados</a></p></li>
+                    <li><p><a href="{% url 'Lista Venda' %}">Listagem de Vendas efetuadas</a></p></li>
+                    <li><p><a href="{% url 'Erro' %}">Relatar erro</a></p></li>
+                    <li><p><a href="{% url 'Sobre' %}">Sobre n&oacute;s</a></p></li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
+

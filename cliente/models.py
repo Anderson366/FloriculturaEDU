@@ -35,7 +35,7 @@ class Produtos(models.Model):
     quantidade_produto = models.IntegerField()
     valor_produto = models.DecimalField(max_digits=6, decimal_places=2)
     descricao = models.TextField()
-    observacao = models.TextField(null = True, blank = True)
+    observacao = models.TextField(null = True, blank = True, default='-')
 
     def __str__(self):
         return self.nome_produto

@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 
 from cliente.views import home
+from cliente.views import base
+from cliente.views import erro
+from cliente.views import sobre
 
 from cliente.views import lista_cliente
 from cliente.views import lista_funcionario
@@ -41,11 +44,16 @@ from cliente.views import deletar_venda
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('lista_cliente/', lista_cliente, name='lista_cliente'),
-    path('lista_funcionario/', lista_funcionario, name='lista_funcionario'),
-    path('lista_produto/', lista_produto, name='lista_produto'),
-    path('lista_venda/', lista_venda, name='lista_venda'),
+    path('home/', home, name='Home'),
+    path('relatar_erro', erro, name='Erro'),
+    path('sobre', sobre, name='Sobre'),
+    path('', base, name='Base'),
+
+
+    path('lista_cliente/', lista_cliente, name='Lista Cliente'),
+    path('lista_funcionario/', lista_funcionario, name='Lista Funcionario'),
+    path('lista_produto/', lista_produto, name='Lista Produto'),
+    path('lista_venda/', lista_venda, name='Lista Venda'),
 
     path('cadastrar_cliente/', cadastrar_cliente, name='Cadastro Cliente'),
     path('cadastrar_funcionario/', cadastrar_funcionario, name='Cadastro Funcionario'),

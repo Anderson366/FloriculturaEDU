@@ -9,6 +9,15 @@ from .models import Produtos
 from .models import Vendas
 import datetime
 
+def base(request):
+    return render(request, 'cliente/base.html')
+
+def erro(request):
+    return render(request, 'cliente/relatar_erro.html')
+
+def sobre(request):
+    return render(request, 'cliente/sobre.html')
+
 def home(request):
     #now = datetime.datetime.now()
     #html = "<html><body>São exatamente: %s </body></html>" % now
@@ -25,7 +34,7 @@ def cadastrar_cliente(request):
     form = ClientesForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('lista_cliente')
+        return redirect('Lista Cliente')
     return render(request, 'cliente/cadastrar_cliente.html', {'form': form})
 def atualizar_cliente(request, pk):
     data = {}
@@ -33,7 +42,7 @@ def atualizar_cliente(request, pk):
     form = ClientesForm(request.POST or None, instance=cliente)
     if form.is_valid():
         form.save()
-        return redirect('lista_cliente')
+        return redirect('Lista Cliente')
     data['form'] = form
     data['cliente'] = cliente
     return render(request, 'cliente/cadastrar_cliente.html', data)
@@ -43,7 +52,7 @@ def atualizar_cliente(request, pk):
 def deletar_cliente(request, pk):
     cliente = Clientes.objects.get(pk=pk)
     cliente.delete()
-    return redirect('lista_cliente')
+    return redirect('Lista Cliente')
 
 
 def lista_funcionario(request):
@@ -54,7 +63,7 @@ def cadastrar_funcionario(request):
     form = FuncionariosForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('lista_funcionario')
+        return redirect('Lista Funcionario')
     return render(request, 'cliente/cadastrar_funcionario.html', {'form': form})
 def atualizar_funcionario(request, pk):
     data = {}
@@ -62,14 +71,14 @@ def atualizar_funcionario(request, pk):
     form = FuncionariosForm(request.POST or None, instance=funcionario)
     if form.is_valid():
         form.save()
-        return redirect('lista_funcionario')
+        return redirect('Lista Funcionario')
     data['form'] = form
     data['funcionario'] = funcionario
     return render(request, 'cliente/cadastrar_funcionario.html', data)
 def deletar_funcionario(request, pk):
     funcionario = Funcionarios.objects.get(pk=pk)
     funcionario.delete()
-    return redirect('lista_funcionario')
+    return redirect('Lista Funcionario')
 
 
 def lista_produto(request):
@@ -80,7 +89,7 @@ def cadastrar_produto(request):
     form = ProdutosForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('lista_produto')
+        return redirect('Lista Produto')
     return render(request, 'cliente/cadastrar_produto.html', {'form': form})
 def atualizar_produto(request, pk):
     data = {}
@@ -88,14 +97,14 @@ def atualizar_produto(request, pk):
     form = ProdutosForm(request.POST or None, instance=produto)
     if form.is_valid():
         form.save()
-        return redirect('lista_produto')
+        return redirect('Lista Produto')
     data['form'] = form
     data['produto'] = produto
     return render(request, 'cliente/cadastrar_produto.html', data)
 def deletar_produto(request, pk):
     produto = Produtos.objects.get(pk=pk)
     produto.delete()
-    return redirect('lista_produto')
+    return redirect('Lista Produto')
 
 
 def lista_venda(request):
@@ -106,7 +115,7 @@ def cadastrar_venda(request):
     form = VendasForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('lista_venda')
+        return redirect('Lista Venda')
     return render(request, 'cliente/cadastrar_venda.html', {'form': form})
 def atualizar_venda(request, pk):
     data = {}
@@ -114,11 +123,11 @@ def atualizar_venda(request, pk):
     form = VendasForm(request.POST or None, instance=venda)
     if form.is_valid():
         form.save()
-        return redirect('lista_venda')
+        return redirect('Lista Venda')
     data['form'] = form
     data['venda'] = venda
     return render(request, 'cliente/cadastrar_venda.html', data)
 def deletar_venda(request, pk):
     venda = Vendas.objects.get(pk=pk)
     venda.delete()
-    return redirect('lista_venda')
+    return redirect('Lista Venda')

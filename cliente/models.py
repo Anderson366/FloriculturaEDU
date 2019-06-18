@@ -32,7 +32,7 @@ class Funcionarios(models.Model):
 class Produtos(models.Model):
     id_produto = models.AutoField(primary_key=True)
     nome_produto = models.CharField(max_length=100, default='')
-    quantidade_produto = models.IntegerField(default=10)
+    quantidade_produto = models.IntegerField()
     valor_produto = models.DecimalField(max_digits=6, decimal_places=2)
     descricao = models.TextField()
     observacao = models.TextField(null = True, blank = True)

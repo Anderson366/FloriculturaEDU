@@ -10,11 +10,12 @@ from .models import Vendas
 import datetime
 
 def home(request):
-    now = datetime.datetime.now()
+    #now = datetime.datetime.now()
     #html = "<html><body>São exatamente: %s </body></html>" % now
     return render(request, 'cliente/home.html')
 
 #render retorna a página html passada como parâmetro e uma request
+
 def lista_cliente(request):
     data = {}
     #DICIONÁRIO DATA
@@ -47,7 +48,6 @@ def deletar_cliente(request, pk):
 
 def lista_funcionario(request):
     data = {}
-    #DICIONÁRIO DATA
     data ['funcionario'] = Funcionarios.objects.all()
     return render(request, 'cliente/lista_funcionario.html', data)
 def cadastrar_funcionario(request):
@@ -74,7 +74,6 @@ def deletar_funcionario(request, pk):
 
 def lista_produto(request):
     data = {}
-    #DICIONÁRIO DATA
     data ['produto'] = Produtos.objects.all()
     return render(request, 'cliente/lista_produto.html', data)
 def cadastrar_produto(request):

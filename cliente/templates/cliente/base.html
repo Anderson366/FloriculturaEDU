@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <title>BEM VINDO AO NOSSO SITE</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% /static/cliente/css/estilolink.css %}">
+
+    <link rel="stylesheet" type="text/css" href="/static/cliente/css/estilolink.css">
 </head>
     <body>
         <div id="principal">
-
-            <h1>Floricultura - MiniDevs</h1>
             <div id="menu">
                 <ul>
-                    <li><p><a href="{% url 'Home' %}">Ver menus</a></p></li>
-                    <li><p><a href="{% url 'Lista Cliente' %}">Listagem de Clientes cadastrados</a></p></li>
-                    <li><p><a href="{% url 'Lista Funcionario' %}">Listagem de Funcion&aacute;rios cadastrados</a></p></li>
-                    <li><p><a href="{% url 'Lista Produto' %}">Listagem de Produtos cadastrados</a></p></li>
-                    <li><p><a href="{% url 'Lista Venda' %}">Listagem de Vendas efetuadas</a></p></li>
-                    <li><p><a href="{% url 'Erro' %}">Relatar erro</a></p></li>
-                    <li><p><a href="{% url 'Sobre' %}">Sobre n&oacute;s</a></p></li>
+                    <li><a href="{% url 'Home' %}">Ver menus</a></li>
+                    <li><a href="{% url 'Lista Cliente' %}">Listagem de Clientes cadastrados</a></li>
+                    <li><a href="{% url 'Lista Funcionario' %}">Listagem de Funcion&aacute;rios cadastrados</a></li>
+                    <li><a href="{% url 'Lista Produto' %}">Listagem de Produtos cadastrados</a></li>
+                    <li><a href="{% url 'Lista Venda' %}">Listagem de Vendas efetuadas</a></li>
+                    <li><a href="{% url 'Erro' %}">Relatar erro</a></li>
+                    <li><a href="{% url 'Sobre' %}">Sobre n&oacute;s</a></li>
                 </ul>
+            </div>
+            <div id="corpo">
+
+            </div>
+            <div id="rodape">
+                <h1>Floricultura - MiniDevs</h1>
             </div>
         </div>
     </body>

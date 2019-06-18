@@ -1,0 +1,49 @@
+#positiontable{
+    position: relative;
+    text-align: center;
+    margin-left: 30%;
+}
+#titulo{
+    position: relative;
+    text-align: center;
+    margin-left: 30%;
+
+}
+h1{
+
+    position:relative;
+    margin-right:50%;
+    font-size: 45px;
+}
+tr{
+    position: relative;
+}
+th{
+     width: 150px;
+}
+
+p {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+a:hover {
+  background-color: #555;
+  color: white;
+}
+hr{
+     width: 40%;
+     height: 10%;
+
+}

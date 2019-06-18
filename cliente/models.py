@@ -4,9 +4,9 @@ from django.db import models
 class Clientes(models.Model):
     id_cliente = models.AutoField(primary_key=True)
     nome_cliente = models.CharField(max_length=100, default='')
-    rg_cliente = models.CharField(max_length=7, default='')
+    rg_cliente = models.CharField(max_length=7, default='00000000')
     endereco_cliente = models.CharField(max_length=50, default='')
-    telefone_cliente = models.CharField(max_length=11, default='')
+    telefone_cliente = models.CharField(max_length=11, default='00000000')
 
     def __str__(self):
         return self.nome_cliente
@@ -17,9 +17,9 @@ class Clientes(models.Model):
 class Funcionarios(models.Model):
     id_funcionario = models.AutoField(primary_key=True)
     nome_funcionario = models.CharField(max_length=100, default='')
-    rg_funcionario = models.CharField(max_length=7, default='')
+    rg_funcionario = models.CharField(max_length=7, default='0000000')
     endereco_funcionario = models.CharField(max_length=50, default='')
-    telefone_funcionario = models.CharField(max_length=11, default='')
+    telefone_funcionario = models.CharField(max_length=11, default='00000000000')
     data_admissao = models.DateTimeField(auto_now_add=False)
     salario = models.DecimalField(max_digits=6, decimal_places=2)
 
@@ -53,17 +53,16 @@ class Vendas(models.Model):
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
     quantidade = models.IntegerField(default=10)
     valor_total = models.DecimalField(max_digits=6, decimal_places=2)
-
+    data_venda = models.DateTimeField(auto_now_add=True)
     #FALTOU COLOCAR A QUANTIDADE DO ESTOQUE
     #FALTOU COLOCAR O VALOR DA VENDA
-
-    data_venda = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.nome_venda
     class Meta:
         verbose_name = 'Venda'
         verbose_name_plural = 'Vendas'
+
 #FALTANDO INTERAGIR COM O BANCO DE DADOS PARA QUE A VENDA POSSA SER EFETUADA DE FORMA ESTÁTICA
 
 #VOU ANOTAR ISSO PARA QUE EU NÃO ESQUEÇA

@@ -3,14 +3,11 @@ from .form import ClientesForm
 from .form import FuncionariosForm
 from .form import ProdutosForm
 from .form import VendasForm
-
-# Create your views here.
-
-import datetime
 from .models import Clientes
 from .models import Funcionarios
 from .models import Produtos
 from .models import Vendas
+import datetime
 
 def home(request):
     now = datetime.datetime.now()

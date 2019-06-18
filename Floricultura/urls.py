@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from cliente.views import home
+
 from cliente.views import lista_cliente
 from cliente.views import lista_funcionario
 from cliente.views import lista_produto

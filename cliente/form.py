@@ -22,6 +22,6 @@ class ProdutosForm(ModelForm):
 class VendasForm(ModelForm):
     class Meta:
         model = Vendas
-        fields = ['nome_venda', 'cliente', 'produto', 'funcionario']
+        fields = ['nome_venda', 'cliente', 'produto', 'funcionario', 'quantidade', 'valor_total']
 
 #SEMPRE COLOCAR OS MESMOS NOMES CONTIDOS NAS CLASSES DENTRO DE MODELS.PY

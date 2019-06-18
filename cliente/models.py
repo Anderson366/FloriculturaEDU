@@ -51,6 +51,8 @@ class Vendas(models.Model):
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produtos, on_delete=models.CASCADE)
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
+    quantidade = models.IntegerField(default=10)
+    valor_total = models.DecimalField(max_digits=6, decimal_places=2)
 
     #FALTOU COLOCAR A QUANTIDADE DO ESTOQUE
     #FALTOU COLOCAR O VALOR DA VENDA

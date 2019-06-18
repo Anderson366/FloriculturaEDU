@@ -61,6 +61,11 @@ class Vendas(models.Model):
     class Meta:
         verbose_name = 'Venda'
         verbose_name_plural = 'Vendas'
+class Erro(models.Model):
+    id_erro = models.AutoField(primary_key=True)
+    nome_relato = models.CharField(max_length=50)
+    descricao_erro = models.TextField()
+
 
 #FALTANDO INTERAGIR COM O BANCO DE DADOS PARA QUE A VENDA POSSA SER EFETUADA DE FORMA ESTÁTICA
 

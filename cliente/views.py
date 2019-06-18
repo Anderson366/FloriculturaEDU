@@ -3,11 +3,14 @@ from .form import ClientesForm
 from .form import FuncionariosForm
 from .form import ProdutosForm
 from .form import VendasForm
+from .form import ErroForm
+
+
 from .models import Clientes
 from .models import Funcionarios
 from .models import Produtos
 from .models import Vendas
-import datetime
+from .models import Erro
 
 def base(request):
     return render(request, 'cliente/base.html')
@@ -131,3 +134,28 @@ def deletar_venda(request, pk):
     venda = Vendas.objects.get(pk=pk)
     venda.delete()
     return redirect('Lista Venda')
+
+def lista_erro(request):
+    data = {}
+    data ['erro'] = Erro.objects.all()
+    return render(request, 'cliente/relatar_erro.html', data)
+def cadastrar_erro(request):
+    form = ErroForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('Lista erro')
+    return render(request, 'cliente/relatar_erro.html', {'form': form})
+def atualizar_erro(request, pk):
+    data = {}
+    erro = Erro.objects.get(pk=pk)
+    form = ErroForm(request.POST or None, instance=erro)
+    if form.is_valid():
+        form.save()
+        return redirect('Lista Erro')
+    data['form'] = form
+    data['erro'] = erro
+    return render(request, 'cliente/relaatar_erro.html', data)
+def deletar_erro(request, pk):
+    erro = Erro.objects.get(pk=pk)
+    erro.delete()
+    return redirect('Lista Erro')

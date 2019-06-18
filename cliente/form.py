@@ -3,6 +3,7 @@ from .models import Clientes
 from .models import Funcionarios
 from .models import Produtos
 from .models import Vendas
+from .models import Erro
 
 class ClientesForm(ModelForm):
     class Meta:
@@ -23,5 +24,10 @@ class VendasForm(ModelForm):
     class Meta:
         model = Vendas
         fields = ['nome_venda', 'cliente', 'produto', 'funcionario', 'quantidade_venda', 'valor_total']
+
+class ErroForm(ModelForm):
+    class Meta:
+        model = Erro
+        fields = ['nome_relato', 'descricao_erro']
 
 #SEMPRE COLOCAR OS MESMOS NOMES CONTIDOS NAS CLASSES DENTRO DE MODELS.PY

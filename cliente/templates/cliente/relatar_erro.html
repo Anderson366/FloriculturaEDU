@@ -5,6 +5,15 @@
     <title>Reportar erro no sistema</title>
 </head>
 <body>
-    <p><a href="{% url 'Home' %}">Ver menus</a></p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p><button type="submit">ENVIAR</button></p>
+        {% if erro %}
+            <a href="{% url 'Deletar Erro' erro.id_erro %}">DELETAR VENDA</a>
+        {% endif%}
+
+    </form>
+    <p><a href="{% url 'Base' %}">Voltar para o in&iacute;cio</a></p>
 </body>
 </html>

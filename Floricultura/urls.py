@@ -49,8 +49,8 @@ from cliente.views import deletar_erro
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home, name='Home'),
-    path('relatar_erro', erro, name='Erro'),
-    path('sobre', sobre, name='Sobre'),
+    path('relatar_erro/', erro, name='Erro'),
+    path('sobre/', sobre, name='Sobre'),
     path('', base, name='Base'),
 
 
@@ -58,7 +58,7 @@ urlpatterns = [
     path('lista_funcionario/', lista_funcionario, name='Lista Funcionario'),
     path('lista_produto/', lista_produto, name='Lista Produto'),
     path('lista_venda/', lista_venda, name='Lista Venda'),
-    path('relatar_erro/', lista_erro, name='Lista Erro'),
+    path('lista_erro/', lista_erro, name='Lista Erro'),
 
 
     path('cadastrar_cliente/', cadastrar_cliente, name='Cadastro Cliente'),

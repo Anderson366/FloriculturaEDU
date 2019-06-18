@@ -143,7 +143,7 @@ def cadastrar_erro(request):
     form = ErroForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Lista erro')
+        return redirect('Lista Erro')
     return render(request, 'cliente/relatar_erro.html', {'form': form})
 def atualizar_erro(request, pk):
     data = {}
@@ -154,7 +154,7 @@ def atualizar_erro(request, pk):
         return redirect('Lista Erro')
     data['form'] = form
     data['erro'] = erro
-    return render(request, 'cliente/relaatar_erro.html', data)
+    return render(request, 'cliente/relatar_erro.html', data)
 def deletar_erro(request, pk):
     erro = Erro.objects.get(pk=pk)
     erro.delete()

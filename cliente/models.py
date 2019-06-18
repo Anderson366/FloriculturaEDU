@@ -66,6 +66,12 @@ class Erro(models.Model):
     nome_relato = models.CharField(max_length=50)
     descricao_erro = models.TextField()
 
+    def __str__(self):
+        return self.nome_relato
+    class Meta:
+        verbose_name = 'Erro'
+        verbose_name_plural = 'Erros'
+
 
 #FALTANDO INTERAGIR COM O BANCO DE DADOS PARA QUE A VENDA POSSA SER EFETUADA DE FORMA ESTÁTICA
 

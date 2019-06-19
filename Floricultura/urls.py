@@ -18,7 +18,6 @@ from django.urls import path
 
 from cliente.views import home
 from cliente.views import base
-from cliente.views import erro
 from cliente.views import sobre
 
 from cliente.views import lista_cliente
@@ -49,7 +48,6 @@ from cliente.views import deletar_erro
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home, name='Home'),
-    path('relatar_erro/', erro, name='Erro'),
     path('sobre/', sobre, name='Sobre'),
     path('', base, name='Base'),
 
@@ -65,7 +63,7 @@ urlpatterns = [
     path('cadastrar_funcionario/', cadastrar_funcionario, name='Cadastro Funcionario'),
     path('cadastrar_produto/', cadastrar_produto, name='Cadastro Produto'),
     path('cadastrar_venda/', cadastrar_venda, name='Cadastro Venda'),
-    path('cadastrar_erro/', cadastrar_erro, name='Cadastro Erro'),
+    path('relatar_erro/', cadastrar_erro, name='Cadastro Erro'),
 
     path('atualizar_cliente/<int:pk>', atualizar_cliente, name='Atualizar Cliente'),
     path('atualizar_funcionario/<int:pk>', atualizar_funcionario, name='Atualizar Funcionario'),

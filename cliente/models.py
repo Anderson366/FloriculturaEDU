@@ -49,7 +49,8 @@ class Vendas(models.Model):
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produtos, on_delete=models.CASCADE)
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
-    quantidade_venda = models.IntegerField(default=10)
+    quantidade_venda = models.IntegerField(max_length=5, default=0)
+#    quantidade_venda = models.IntegerField(default=10)
     valor_total = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     data_venda = models.DateTimeField(auto_now_add=True)
 
@@ -62,7 +63,7 @@ class Vendas(models.Model):
         verbose_name = 'Venda'
         verbose_name_plural = 'Vendas'
 
-class Erro(models.Model):
+class Erros(models.Model):
     id_erro = models.AutoField(primary_key=True)
     nome_relato = models.CharField(max_length=50)
     descricao_erro = models.TextField()

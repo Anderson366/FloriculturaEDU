@@ -3,20 +3,17 @@ from .form import ClientesForm
 from .form import FuncionariosForm
 from .form import ProdutosForm
 from .form import VendasForm
-from .form import ErroForm
+from .form import ErrosForm
 
 
 from .models import Clientes
 from .models import Funcionarios
 from .models import Produtos
 from .models import Vendas
-from .models import Erro
+from .models import Erros
 
 def base(request):
     return render(request, 'cliente/base.html')
-
-def erro(request):
-    return render(request, 'cliente/relatar_erro.html')
 
 def sobre(request):
     return render(request, 'cliente/sobre.html')
@@ -111,9 +108,9 @@ def deletar_produto(request, pk):
 
 
 def lista_venda(request):
-    form = Vendas.objects.all()
-    return render(request, 'cliente/lista_venda.html', {'form':form})
-
+    data = {}
+    data['venda'] = Vendas.objects.all()
+    return render(request, 'cliente/lista_venda.html', data)
 def cadastrar_venda(request):
     form = VendasForm(request.POST or None)
     if form.is_valid():
@@ -137,18 +134,18 @@ def deletar_venda(request, pk):
 
 def lista_erro(request):
     data = {}
-    data ['erro'] = Erro.objects.all()
-    return render(request, 'cliente/relatar_erro.html', data)
+    data ['erro'] = Erros.objects.all()
+    return render(request, 'cliente/lista_erro.html', data)
 def cadastrar_erro(request):
-    form = ErroForm(request.POST or None)
+    form = ErrosForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('Lista Erro')
     return render(request, 'cliente/relatar_erro.html', {'form': form})
 def atualizar_erro(request, pk):
     data = {}
-    erro = Erro.objects.get(pk=pk)
-    form = ErroForm(request.POST or None, instance=erro)
+    erro = Erros.objects.get(pk=pk)
+    form = ErrosForm(request.POST or None, instance=erro)
     if form.is_valid():
         form.save()
         return redirect('Lista Erro')
@@ -156,6 +153,6 @@ def atualizar_erro(request, pk):
     data['erro'] = erro
     return render(request, 'cliente/relatar_erro.html', data)
 def deletar_erro(request, pk):
-    erro = Erro.objects.get(pk=pk)
+    erro = Erros.objects.get(pk=pk)
     erro.delete()
     return redirect('Lista Erro')

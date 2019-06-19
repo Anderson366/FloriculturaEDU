@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>LISTA DE ERROS</h1>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>DESCRI&Ccedil;&Atilde;O DO ERRO</th>
+                </tr>
+            </thead>
+            {% for Erros in erro %}
+                <tr>
+                    <td><a href="{% url 'Atualizar Erro' Erros.id_erro %}">{{ Erros.nome_relato }}</a></td>
+                    <td>{{ Erros.descricao_erro }}</td>
+                </tr>
+            {% empty %}
+                <h3>Sem erros cadastrados.</h3>
+            {% endfor %}
+        </table>
+    </div>
+    <hr/>
+    <p><a href="{% url 'Cadastro Erro' %}">Cadastrar novo erro</a></p>
+    <p><a href="{% url 'Base' %}">Voltar para o in&iacute;cio</a></p>
+    <p><a href="{% url 'Home' %}">Ver menus</a></p>
+</body>
+</html>

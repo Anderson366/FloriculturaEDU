@@ -5,13 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cadastro de Funcion&aacute;rios</title>
 </head>
 <body>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <p><button type="submit">SALVAR</button></p>
+            <p><button type="submit">SALVAR</button></p>
         {% if funcionario %}
             <a href="{% url 'Deletar Funcionario' funcionario.id_funcionario %}">DELETAR FUNCION&Aacute;RIO</a>
         {% endif%}

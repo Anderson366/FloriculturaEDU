@@ -1,45 +1,45 @@
 <!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Documento</title>
-</head>
-<body>
-    <h1>LISTA DE VENDAS</h1>
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>NOME</th>
-                    <th>CLIENTE</th>
-                    <th>PRODUTO</th>
-                    <th>FUNCION&Aacute;RIO</th>
-                    <th>QUANTIDADE</th>
-                    <th>|VALOR TOTAL|</th>
-                    <th>|DATA VENDA|</th>
-                </tr>
-            </thead>
-            {% for Vendas in venda %}
-                <tr>
-                    <td><a href="{% url 'Atualizar Venda' Vendas.id_venda %}">{{ Vendas.nome_venda }}</a></td>
-                    <td>{{ Vendas.cliente }}</td>
-                    <td>{{ Vendas.produto }}</td>
-                    <td>{{ Vendas.funcionario }}</td>
-                    <td>{{ Vendas.quantidade_venda }}</td>
-                    <td>{{ Vendas.valor_total }}</td>
-                    <td>{{ Vendas.data_venda }}</td>
-                </tr>
-            {% empty %}
-                <h3>Sem vendas realizadas.</h3>
-            {% endfor %}
-        </table>
-    </div>
-    <hr/>
-    <p><a href="{% url 'Cadastro Venda' %}">Cadastrar nova venda</a></p>
-    <p><a href="{% url 'Base' %}">Voltar para o in&iacute;cio</a></p>
-    <p><a href="{% url 'Home' %}">Ver menus</a></p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lista de Vendas</title>
+    </head>
+    <body>
+        <h1>LISTA DE VENDAS</h1>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NOME</th>
+                        <th>CLIENTE</th>
+                        <th>PRODUTO</th>
+                        <th>FUNCION&Aacute;RIO</th>
+                        <th>QUANTIDADE</th>
+                        <th>|VALOR TOTAL|</th>
+                        <th>|DATA VENDA|</th>
+                    </tr>
+                </thead>
+                {% for Vendas in venda %}
+                    <tr>
+                        <td><a href="{% url 'Atualizar Venda' Vendas.id_venda %}">{{ Vendas.nome_venda }}</a></td>
+                        <td>{{ Vendas.cliente }}</td>
+                        <td>{{ Vendas.produto }}</td>
+                        <td>{{ Vendas.funcionario }}</td>
+                        <td>{{ Vendas.quantidade_venda }}</td>
+                        <td>{{ Vendas.valor_total }}</td>
+                        <td>{{ Vendas.data_venda }}</td>
+                    </tr>
+                {% empty %}
+                    <h3>Sem vendas realizadas.</h3>
+                {% endfor %}
+            </table>
+        </div>
+        <hr/>
+        <p><a href="{% url 'Cadastro Venda' %}">Cadastrar nova venda</a></p>
+        <p><a href="{% url 'Base' %}">Voltar para o in&iacute;cio</a></p>
+        <p><a href="{% url 'Home' %}">Ver menus</a></p>
+    </body>
 </html>

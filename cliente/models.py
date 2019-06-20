@@ -51,7 +51,6 @@ class Vendas(models.Model):
     produto = models.ForeignKey(Produtos, on_delete=models.CASCADE)
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
     quantidade_venda = models.IntegerField('Quantidade do Produto', default=0)
-#    quantidade_venda = models.IntegerField(default=10)
     valor_total = models.DecimalField('Valor Total da Venda', max_digits=6, decimal_places=2, default=0.0)
     data_venda = models.DateTimeField('Data da Venda', auto_now_add=True)
 

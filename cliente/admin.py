@@ -17,3 +17,7 @@ admin.site.register(Funcionarios)
 admin.site.register(Produtos)
 admin.site.register(Vendas)
 admin.site.register(Erros)
+
+admin.site.site_header = 'MiniDevs'
+admin.site.index_title = 'Floricultura'
+admin.site.site_title = 'ADM - Floricultura'

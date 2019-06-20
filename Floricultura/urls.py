@@ -16,34 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from cliente.views import home
-from cliente.views import base
-from cliente.views import sobre
-
-from cliente.views import lista_cliente
-from cliente.views import lista_funcionario
-from cliente.views import lista_produto
-from cliente.views import lista_venda
-from cliente.views import lista_erro
-
-from cliente.views import cadastrar_cliente
-from cliente.views import cadastrar_funcionario
-from cliente.views import cadastrar_produto
-from cliente.views import cadastrar_venda
-from cliente.views import cadastrar_erro
-
-from cliente.views import atualizar_cliente
-from cliente.views import atualizar_funcionario
-from cliente.views import atualizar_produto
-from cliente.views import atualizar_venda
-from cliente.views import atualizar_erro
-
-from cliente.views import deletar_cliente
-from cliente.views import deletar_funcionario
-from cliente.views import deletar_produto
-from cliente.views import deletar_venda
-from cliente.views import deletar_erro
-
+from cliente.views import home, base, sobre, lista_cliente, lista_funcionario, lista_produto, lista_venda, lista_erro, cadastrar_cliente, cadastrar_funcionario, cadastrar_produto, cadastrar_venda, cadastrar_erro, atualizar_cliente, atualizar_funcionario, atualizar_produto, atualizar_venda, atualizar_erro, deletar_cliente, deletar_funcionario, deletar_produto, deletar_venda, deletar_erro
 
 urlpatterns = [
     path('admin/', admin.site.urls),

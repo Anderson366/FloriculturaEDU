@@ -1,16 +1,6 @@
 from django.shortcuts import render, redirect
-from .form import ClientesForm
-from .form import FuncionariosForm
-from .form import ProdutosForm
-from .form import VendasForm
-from .form import ErrosForm
-
-
-from .models import Clientes
-from .models import Funcionarios
-from .models import Produtos
-from .models import Vendas
-from .models import Erros
+from .form import ClientesForm, FuncionariosForm, ProdutosForm, VendasForm, ErrosForm
+from .models import Clientes, Funcionarios, Produtos, Vendas, Erros
 
 def base(request):
     return render(request, 'cliente/base.html')
@@ -19,16 +9,12 @@ def sobre(request):
     return render(request, 'cliente/sobre.html')
 
 def home(request):
-    #now = datetime.datetime.now()
-    #html = "<html><body>São exatamente: %s </body></html>" % now
     return render(request, 'cliente/home.html')
-
-#render retorna a página html passada como parâmetro e uma request
 
 def lista_cliente(request):
     data = {}
-    #DICIONÁRIO DATA
     data ['cliente'] = Clientes.objects.all()
+    #DICIONÁRIO DATA
     return render(request, 'cliente/lista_cliente.html', data)
 def cadastrar_cliente(request):
     form = ClientesForm(request.POST or None)
@@ -157,7 +143,7 @@ def deletar_erro(request, pk):
     erro.delete()
     return redirect('Lista Erro')
 
-def exibir_campo(request):
+def decrementar_estoque(request):
         data = {}
         data['venda'] = Vendas.objects.all()
         return render(request, 'cliente/lista_venda.html', data)

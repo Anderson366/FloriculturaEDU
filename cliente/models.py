@@ -37,7 +37,6 @@ class Produtos(models.Model):
     valor_produto = models.DecimalField('Valor Unidade', max_digits=6, decimal_places=2)
     descricao = models.TextField('Descrição')
     observacao = models.TextField('Observação', null = True, blank = True, default='-')
-    custo = models.DecimalField('Custo da C', max_digits=10, decimal_places=2, default=0)
     def __str__(self):
         return self.nome_produto
     class Meta:
@@ -57,11 +56,6 @@ class Vendas(models.Model):
     #FALTOU COLOCAR A QUANTIDADE DO ESTOQUE
     #FALTOU COLOCAR O VALOR DA VENDA
 
-    def custo_produto(self):
-        total = 0
-        for Produtos in self.produtos.all():
-            total += Produtos.custo
-        return total
     def __str__(self):
         return self.nome_venda
     class Meta:

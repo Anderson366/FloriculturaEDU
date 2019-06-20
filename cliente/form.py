@@ -18,7 +18,7 @@ class FuncionariosForm(ModelForm):
 class ProdutosForm(ModelForm):
     class Meta:
         model = Produtos
-        fields = ['nome_produto', 'quantidade_produto', 'valor_produto', 'descricao', 'observacao', 'custo']
+        fields = ['nome_produto', 'quantidade_produto', 'valor_produto', 'descricao', 'observacao']
 
 class VendasForm(ModelForm):
     class Meta:

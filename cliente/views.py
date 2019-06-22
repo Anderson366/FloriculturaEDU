@@ -142,8 +142,3 @@ def deletar_erro(request, pk):
     erro = Erros.objects.get(pk=pk)
     erro.delete()
     return redirect('Lista Erro')
-
-def decrementar_estoque(request):
-        data = {}
-        data['venda'] = Vendas.objects.all()
-        return render(request, 'cliente/lista_venda.html', data)

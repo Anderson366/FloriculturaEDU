@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
 from .models import Clientes
 from .models import Funcionarios
 from .models import Produtos

@@ -1,4 +1,3 @@
-import kwargs as kwargs
 from django.db import models
 
 # Create your models here.

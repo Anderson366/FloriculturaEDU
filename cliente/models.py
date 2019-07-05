@@ -44,7 +44,7 @@ class Produtos(models.Model):
 
 class Vendas(models.Model):
     id_venda = models.AutoField(primary_key=True)
-    nome_venda = models.CharField('Nome da Venda', max_length=100, default='')
+#    nome_venda = models.CharField('Nome da Venda', max_length=100, default='')
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produtos, on_delete=models.CASCADE)
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
@@ -56,7 +56,7 @@ class Vendas(models.Model):
     #FALTOU COLOCAR O VALOR DA VENDA
 
     def __str__(self):
-        return self.nome_venda
+        return 'Venda Número {}'.format(self.id_venda)
     class Meta:
         verbose_name = 'Venda'
         verbose_name_plural = 'Vendas'

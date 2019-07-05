@@ -24,7 +24,7 @@
                 </thead>
                 {% for Vendas in venda %}
                     <tr>
-                        <td><a href="{% url 'Atualizar Venda' Vendas.id_venda %}">{{ Vendas.nome_venda }}</a></td>
+                        <td><a href="{% url 'Atualizar Venda' Vendas.id_venda %}">Venda N&uacute;mero: {{ Vendas.id_venda }}</a></td>
                         <td>{{ Vendas.cliente }}</td>
                         <td>{{ Vendas.produto }}</td>
                         <td>{{ Vendas.funcionario }}</td>

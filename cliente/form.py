@@ -23,7 +23,7 @@ class ProdutosForm(ModelForm):
 class VendasForm(ModelForm):
     class Meta:
         model = Vendas
-        fields = ['nome_venda', 'cliente', 'produto', 'funcionario', 'quantidade_venda', 'valor_total']
+        fields = ['cliente', 'produto', 'funcionario', 'quantidade_venda', 'valor_total']
 
 class ErrosForm(ModelForm):
     class Meta:
